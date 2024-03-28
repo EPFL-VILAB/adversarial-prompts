@@ -1,0 +1,35 @@
+pretrained_model_name_or_path: "runwayml/stable-diffusion-v1-5"
+placeholder_token_init_mode: "mean_emb_cov_emb"
+resolution: 384 
+scale_lr: True
+guidance_scale: 7
+validation_steps: 50 
+dataloader_num_workers: 2  
+num_inference_steps: 10 
+mixed_precision: "bf16" 
+report_to: "tensorboard" 
+only_save_embeds: True 
+save_steps: 250  
+dataset: "iwilds" 
+seed: 1 
+gradient_accumulation_steps: 4 
+learning_rate: 0.001 
+lr_scheduler: "constant" 
+lr_warmup_steps: 0 
+adam_weight_decay: 0 
+strength: 1.0 
+train_batch_size: 8 
+num_new_tokens: 2 
+skip_adv_loss_steps: 0 
+max_train_steps: 1001
+#num_images: 10 
+wandb_group: "debug" 
+wandb_name: "" 
+good_logging: True
+## mask
+paste_masked_pixels: True
+
+## should point to iwildcam training images
+train_data_dir: "wilds/iwildcam_v2.0/train"
+## please find the instance masks as described in iWildCam2021 README https://github.com/visipedia/iwildcam_comp/blob/master/2021/readme.md
+masks_data_dir: "wilds/iwildcam2021/instance_masks/instance_masks"
